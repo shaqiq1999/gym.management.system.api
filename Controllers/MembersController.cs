@@ -1,5 +1,6 @@
 ﻿using gym.management.system.api.Interface;
 using gym.management.system.api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

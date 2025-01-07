@@ -14,9 +14,9 @@ namespace gym.management.system.api.Services
         {
             _membersService = membersService;
             _configuration = configuration;
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("GMDConnection"));
-            IMongoDatabase mongoDatabase = dbClient.GetDatabase(_configuration.GetConnectionString("DatabaseName"));
-            _attendanceCollection = mongoDatabase.GetCollection<Attendance>("Attendance");
+            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString(KeyStore.Configuration.ConnectionStringField));
+            IMongoDatabase mongoDatabase = dbClient.GetDatabase(_configuration.GetConnectionString(KeyStore.Configuration.DatabaseNameField));
+            _attendanceCollection = mongoDatabase.GetCollection<Attendance>(KeyStore.Configuration.Attendance);
         }
 
         public async Task AttendanceSubmitAsync()

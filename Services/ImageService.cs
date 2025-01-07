@@ -15,9 +15,9 @@ namespace gym.management.system.api.Services
         {
             _membersService = membersService;
             _configuration = configuration;
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("GMDConnection"));
-            IMongoDatabase mongoDatabase = dbClient.GetDatabase(_configuration.GetConnectionString("DatabaseName"));
-            _imageCollection = mongoDatabase.GetCollection<Image>("Image");
+            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString(KeyStore.Configuration.ConnectionStringField));
+            IMongoDatabase mongoDatabase = dbClient.GetDatabase(_configuration.GetConnectionString(KeyStore.Configuration.DatabaseNameField));
+            _imageCollection = mongoDatabase.GetCollection<Image>(KeyStore.Configuration.Image);
         }
 
         public async Task<bool> UploadImage(IFormFile image,string memberid)
